@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:web_test/presentation/widget/screen/edit_screen.dart';
 
 class ListScreen extends StatefulWidget {
   ListScreen({Key key}) : super(key: key);
@@ -63,11 +62,7 @@ class _ListScreenState extends State<ListScreen> {
                       onSelected: (PopupOption option) {
                         switch (option) {
                           case PopupOption.EDIT:
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        EditScreen()));
+                            Navigator.of(context).pushNamed('/contents/$index');
                             break;
                           case PopupOption.DELETE:
                             // Nothing

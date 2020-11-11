@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:web_test/presentation/widget/screen/list_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key key}) : super(key: key);
@@ -58,11 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: ElevatedButton(
                             child: Text('Login'),
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ListScreen()));
+                              Navigator.of(context).pushNamed('/contents');
                             },
                           ),
                         ),
