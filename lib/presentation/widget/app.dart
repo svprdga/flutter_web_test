@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:web_test/presentation/widget/screen/edit_screen.dart';
 import 'package:web_test/presentation/widget/screen/list_screen.dart';
 import 'package:web_test/presentation/widget/screen/login_screen.dart';
+import 'package:web_test/presentation/widget/screen/test_screen.dart';
 
 class App extends StatelessWidget {
   // ****************************** LIFECYCLE ****************************** //
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
 
     var mainHandler = Handler(
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-      return LoginScreen();
+      return TestScreen();
     });
     var listHandler = Handler(
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
