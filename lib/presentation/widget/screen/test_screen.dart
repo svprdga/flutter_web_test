@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TestScreen extends StatefulWidget {
@@ -22,6 +23,15 @@ class _TestScreenState extends State<TestScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final Uri _emailLaunchUri = Uri(
+        scheme: 'mailto',
+        path: 'smith@example.com',
+        queryParameters: {
+          'subject': 'Example Subject & Symbols are allowed!'
+        }
+    );
+
     return Scaffold(
         body: Center(
           child: IntrinsicHeight(
@@ -42,7 +52,7 @@ class _TestScreenState extends State<TestScreen> {
                 ),
                 Text('Este te tendría que abrir el mail'),
                 _getFixedWidthTextButton('res/icon/ic_email.png', 'test@test.com',
-                        () async => _launchUrl(URL_MAIL)),
+                        () async => launch(_emailLaunchUri.toString())),
                 Container(
                   height: MARGIN,
                 ),
@@ -67,7 +77,8 @@ class _TestScreenState extends State<TestScreen> {
                 Text('Y finalmente este te tiene que abrir el maps'),
                 ElevatedButton(
                   child: Text('815  Pine Garden Lane, Stone Mountain, 30083, GA'),
-                  onPressed: () async => _launchUrl(URL_GEO),
+                  onPressed: () async => MapsLauncher.launchQuery(
+                      '815  Pine Garden Lane, Stone Mountain, 30083, GA'),
                 ),
               ],
             ),
